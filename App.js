@@ -1,13 +1,18 @@
 import { StatusBar } from 'expo-status-bar';
-import { Button,  SafeAreaView,  Text, View } from 'react-native';
+import {   SafeAreaView,  Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import HomeScreen from './components/HomeScreen';
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <SafeAreaView className='mt-10' >
-      <Text >Hii This is SARANG</Text>
-      <Button title='Press' onPress={()=>alert("How can I help you")}/>
-      <StatusBar style="auto" />
-    </SafeAreaView>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={HomeScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
+    
   );
 }
 
